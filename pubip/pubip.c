@@ -12,11 +12,7 @@ int main(int argc, char *argv[])
 	PCTSTR acceptTypes[] = { "text/*", NULL};
 	char* lpBuffer[256] = { 0 };
 	DWORD dwBytesRead = 0, dwBytesAvailable = 0;
-	BOOL asJson = FALSE;
-
-	if (argc == 2)
-		if (strcmp(tolower(argv[1]), "-json\n"))
-			asJson = TRUE;
+	BOOL asJson = argc == 2 && strcmp(tolower(argv[1]), "-json\n");
 
 	hInternetSession = InternetOpen("pubip", INTERNET_OPEN_TYPE_PRECONFIG, NULL, NULL, 0);
 
